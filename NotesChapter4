@@ -1,0 +1,11 @@
+Lists
+
+   [mia,  vincent,  jules,  yolanda] 
+    
+   [mia,  robber(honey_bunny),  X,  2,  mia] 
+    
+   [] 
+    
+   [mia,  [vincent,  jules],  [butch,  girlfriend(butch)]] 
+    
+   [[],  dead(z),  [2,  [b,  c]],  [],  Z,  [2,  [b,  c]]]

@@ -1,0 +1,54 @@
+
+declaration: x is y:
+
+	x(y).
+
+Condition: (x is y) if (a is b):
+	
+	x(y) :- a(b).  
+
+Disjunction (OR): (x is y) or (a is b):
+
+	x(y);a(b).
+
+Relationship: x has a y relationship with z:
+
+	y(x, z).
+
+	*order does not matter so long as there is consistency.
+
+Variables:
+
+	Anything beginning with an upper case letter:
+
+	X.
+	Hello.
+	Variable.
+
+Rule:	Simply a statement defined with variables.
+
+	nice(X):- pleasant(X), wellMannered(Y).
+	jealous(X, Z):- loves(X, Y), loves(Y, Z).
+
+
+Prolog Terms: 4 Types
+	
+	1. Atoms 	- Strings beginning with a
+			lower case letter.
+		 	- An arbitrary sequence of chars enclosed
+			in single quotes.
+			- A string of special characters
+
+	2. Numbers	- Not particularly in prolog.
+
+	3. Variables	- Strings beginning with upper case
+			letters.
+
+	4. ComplexTerms	- Collections of Constants (Atoms and 
+			Numbers) and Varibles.
+
+Unification
+
+- Two terms unify if they are the same term or if they contain variables that can be uniformly instantiated with terms in such a way that the resulting terms are equal.
+
+- 
