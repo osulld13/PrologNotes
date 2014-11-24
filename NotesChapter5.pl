@@ -46,3 +46,44 @@ Using Accumultors in Prolog
   accLen([_|T], A, L) :- NewA isA + 1, accLen(T, NewA, L).
 
   leng(List, Length) :- accLen(List, 0, Length).
+
+Integer Comparison
+
+  X < Y.
+  X =< Y.
+  X =:= Y.
+  X =\= Y.
+  X >= Y.
+  X > Y.
+
+These operators force their right hand side to be evaluated
+
+  2 < 4+1.
+  yes
+
+('=' vs '=:=') '='checks for unification, the same expression. While '=:='
+checks for arithmetic equality.
+
+Max Function
+
+  accMax([], Acc, Acc).
+
+  accMax([H|T], Acc, Max):-
+        H < Acc,
+        accMax(T, Acc, Max).
+
+  accMax([H|T], Acc, Max) :-
+	H > Acc,
+	accMax(T, H, Max).
+
+   % max(List) :- accMax(List, 0, Max)
+
+   % The head of the list should be used for our inital value as 
+   % the list may be of negative as a result max is -
+
+   max(List, Max) :-
+	List = [H_],
+ 	accMax(List, H, Max).  
+
+  increment(X, Y):- 
+	Y =:= X + 1.
