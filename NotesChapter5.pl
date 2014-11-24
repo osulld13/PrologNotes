@@ -29,3 +29,20 @@ Variables can be useful here
 Arithmetic operators can be used to define predicates
 
    add_3_and_double(X,Y)  :-  Y  is  (X+3)*2.
+
+
+Using Arithmetic With Lists
+
+Length of a List
+
+  len([], 0)
+  len([_|T], N) :- len(T, X) , N is X + 1
+
+Using Accumultors in Prolog
+
+  %accLen(List, Acc, Length)
+
+  accLen([], A, A).
+  accLen([_|T], A, L) :- NewA isA + 1, accLen(T, NewA, L).
+
+  leng(List, Length) :- accLen(List, 0, Length).
