@@ -27,17 +27,28 @@
     s(Z) :- np(X), vp(Y), append(X, Y, Z).
     
 % Given this the grammar
-  % s 	-> np vp
-  % np 	-> det n
-  % vp	-> v np
-  % vp	-> v
-  % det	-> a
-  % det	-> the
-  % n	-> woman
-  % n	-> man
-  % v	-> shoots
+  % s   -> np vp
+  % np  -> det n
+  % vp  -> v np
+  % vp  -> v
+  % det -> a
+  % det -> the
+  % n -> woman
+  % n -> man
+  % v -> shoots
 
 % The prolog corresponding is as follows
   
-  s(X) :-
-    
+  s(Z)  :- np(X), vp(Y), append(X, Y, Z).
+  np(Z) :- det(X), n(Y), append(X, Y, Z).
+  vp(Z) :- v(X), np(Y), append(X, Y, Z).
+  vp(Z) :- v(Z).
+
+  det([a]).
+  det([the]).
+
+  n([woman]).
+  n([man]).
+  
+  v([shoots]).
+
