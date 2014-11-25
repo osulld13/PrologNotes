@@ -23,5 +23,7 @@
 
 	v --> [shoots].
 
-% Here weve added pronouns to state which pronouns can occur i the subject position
-% and which ones can occur in the object position. 
+% Here weve added pronouns to state which pronouns can occur in the subject position
+% and which ones can occur in the object position.
+
+	
