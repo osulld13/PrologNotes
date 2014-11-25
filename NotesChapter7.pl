@@ -53,3 +53,37 @@
 
   v([shoots]).
 
+% CFG recognition using difference lists
+
+  % Difference lists represent the informationabout grammatical categories not
+  % as a single list but as the difference between two lists.
+
+  % We can represent the sentence [a, woman, shoots, a, man] as
+
+  [a, woman, shoots, a, man] [].
+
+  % An input list (what needs to be consumed) and an output list (what we should leave behind)
+  % If we consume all the symbols on the left and leace those to the right behind we will have
+  % the symbols we are looking for.
+  % The sentence we are interested in is the difference between the two sentences
+
+  % alternatively:
+
+  [a, woman, shoots, a, man, ploggle, woggle] [ploggle, woggle].
+
+  % Applying this our recognizer becomes
+
+  s(X, Z)   :- np(X, Y), vp(Y, Z).
+  np(X, Z)  :- det(X, Y), n(Y, Z).
+  vp(X, Z)  :- v(X, Y), np(Y, Z).
+  vp(X, Z)  :- v(X, Z).
+
+  det([a|W], W).
+  det([the|W], W).
+
+  n([woman|W], W).
+  n([man|W], W).
+
+  v([shoots|W], W).
+
+  verify(X) :- s(X, []).
