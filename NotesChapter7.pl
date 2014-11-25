@@ -87,3 +87,59 @@
   v([shoots|W], W).
 
   verify(X) :- s(X, []).
+
+% Definite clause grammars - a notation for writing grammars that hides the underlying difference list variables 
+
+    s -->  np, vp.
+
+    np --> det, n.
+    vp --> v, np.
+    vp --> v.
+
+    det --> [the].
+    det --> [a].
+
+    n --> [woman].
+    n --> [man].
+
+    v --> [shoots].
+
+  % used like: s([a, woman, shoots, a, man], []).
+  %         or: s(X, []).
+
+  % To see how prolog handles each statment type: listing(s).
+
+  %  s(A,B) :-
+  %   np(A,C),
+  %   vp(C,B).
+
+% Adding Recursive rules
+
+  s -->s, conj, s.
+
+  conj --> [and].
+  conj --> [or].
+  conj --> [but].
+
+% Ordering of rules is important and the less complex cases / base cases of the 
+% same non-terminal should always be first. 
+
+% if an invalid entry is made the dcg will infinitely loop
+% to solve this problem we have to introduce a new non-terminal symbol
+
+  s --> simple_s
+  s --> simple_s, conj, s.
+  simple_s --> np, vp.
+
+
+% A simple definite clause grammar for a formal language
+
+  % s -> epsilon
+  % s -> l s r
+  % l -> a
+  % r -> b
+
+    s --> [].
+    s --> l, s, r.
+    l --> [a].
+    r --> [r].
