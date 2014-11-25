@@ -17,3 +17,27 @@
 
 % Recognizers are defined in prolog by creating clauses that correspond to 
 % grammar rules.
+
+  % To Initially model recognizers we shal use lists to represent strings
+    [a, woman, shoots, a, man]
+  
+  % (s -> np vp) Can be modelled as saying:
+  % s is made out of np concatenated with vp
+      
+    s(Z) :- np(X), vp(Y), append(X, Y, Z).
+    
+% Given this the grammar
+  % s 	-> np vp
+  % np 	-> det n
+  % vp	-> v np
+  % vp	-> v
+  % det	-> a
+  % det	-> the
+  % n	-> woman
+  % n	-> man
+  % v	-> shoots
+
+% The prolog corresponding is as follows
+  
+  s(X) :-
+    
